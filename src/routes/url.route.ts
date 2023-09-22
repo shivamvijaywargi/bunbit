@@ -18,7 +18,17 @@ const urlRoutes = (app: Elysia) =>
           },
         };
       })
-      .get("/:id", async () => {})
+      .get("/:id", async ({ params, set }) => {
+        const url = await UrlModel.findOne({ shortUrlId: params.id });
+
+        console.log(url);
+
+        if (!url) {
+          set.redirect = `${process.env.CLIENT_URL}not-found`;
+        }
+
+        set.redirect = url?.originalUrl;
+      })
       .post(
         "/",
         async ({ body }) => {
@@ -41,6 +51,7 @@ const urlRoutes = (app: Elysia) =>
           const newUrl = await UrlModel.create({
             originalUrl: body.url,
             shortUrl: shortUrl,
+            shortUrlId,
           });
 
           return {
