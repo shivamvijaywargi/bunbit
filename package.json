@@ -8,7 +8,8 @@
     "format:check": "bun format -- --check",
     "format:fix": "bun format -- --write",
     "lint": "eslint .",
-    "lint:fix": "bun lint -- --fix"
+    "lint:fix": "bun lint -- --fix",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@elysiajs/cors": "^0.7.0",
@@ -24,10 +25,30 @@
     "bun-types": "latest",
     "eslint": "^8.50.0",
     "eslint-config-prettier": "^9.0.0",
+    "husky": "^8.0.0",
+    "lint-staged": "^14.0.1",
     "prettier": "^3.0.3"
   },
   "module": "index.ts",
   "peerDependencies": {
     "typescript": "^5.0.0"
+  },
+  "author": {
+    "name": "Shivam Vijaywargi",
+    "email": "vijaywargishivam@gmail.com",
+    "url": "https://github.com/shivamvijaywargi"
+  },
+  "maintainers": [
+    {
+      "name": "Shivam Vijaywargi",
+      "email": "vijaywargishivam@gmail.com",
+      "url": "https://github.com/shivamvijaywargi"
+    }
+  ],
+  "lint-staged": {
+    "*.ts": [
+      "eslint --max-warnings=0",
+      "prettier --write"
+    ]
   }
 }
