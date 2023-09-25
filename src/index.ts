@@ -1,11 +1,11 @@
-import { Elysia } from "elysia";
-import { swagger } from "@elysiajs/swagger";
-import cors from "@elysiajs/cors";
+import { Elysia } from 'elysia';
+import { swagger } from '@elysiajs/swagger';
+import cors from '@elysiajs/cors';
 
-import connectToDB from "./config/dbConn";
-import urlRoutes from "./routes/url.route";
+import connectToDB from './config/dbConn';
+import urlRoutes from './routes/url.route';
 
-const PORT = process.env.PORT || 5000;
+const PORT = parseInt(process.env.PORT || '5000', 10);
 
 // Connect to MongoDB
 await connectToDB();
@@ -15,11 +15,11 @@ const app = new Elysia()
   .use(cors())
   .use(
     swagger({
-      path: "/swagger",
+      path: '/swagger',
     })
   )
-  .get("/", () => "Hello Elysia")
-  .group("/api/v1", (app) => app.use(urlRoutes))
+  .get('/', () => 'Hello Elysia')
+  .group('/api/v1', (app) => app.use(urlRoutes))
   .listen(PORT);
 
 console.log(
