@@ -1,10 +1,14 @@
 {
   "name": "bunbit",
   "version": "1.0.50",
-  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "bun run --watch src/index.ts"
+    "dev": "bun run --watch src/index.ts",
+    "format": "prettier .",
+    "format:check": "bun format -- --check",
+    "format:fix": "bun format -- --write",
+    "lint": "eslint .",
+    "lint:fix": "bun lint -- --fix"
   },
   "dependencies": {
     "@elysiajs/cors": "^0.7.0",
@@ -14,6 +18,15 @@
     "nanoid": "^5.0.1"
   },
   "devDependencies": {
-    "bun-types": "latest"
+    "@typescript-eslint/eslint-plugin": "^6.7.2",
+    "@typescript-eslint/parser": "^6.7.2",
+    "bun-types": "latest",
+    "eslint": "^8.50.0",
+    "eslint-config-prettier": "^9.0.0"
+  },
+  "module": "index.ts",
+  "type": "module",
+  "peerDependencies": {
+    "typescript": "^5.0.0"
   }
 }
