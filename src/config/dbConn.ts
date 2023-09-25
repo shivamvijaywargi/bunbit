@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 const connectToDB = async () => {
   try {
     const conn = await mongoose.connect(
-      process.env.MONGO_URI || "mongodb://localhost:27017/urlShortner"
+      process.env.MONGO_URI || "mongodb://localhost:27017/urlShortner",
     );
 
     if (conn) {

@@ -1,18 +1,18 @@
 /* eslint-env node */
 module.exports = {
   extends: [
-    'eslint:recommended',
-    'plugin:@typescript-eslint/recommended-type-checked',
-    'prettier',
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended-type-checked",
+    "prettier",
   ],
-  parser: '@typescript-eslint/parser',
+  parser: "@typescript-eslint/parser",
   parserOptions: {
     tsconfigRootDir: __dirname,
-    project: ['./tsconfig.json'],
+    project: ["./tsconfig.json"],
   },
-  plugins: ['@typescript-eslint'],
+  plugins: ["@typescript-eslint"],
   root: true,
   rules: {
-    '@typescript-eslint/no-unused-vars': 'warn',
+    "@typescript-eslint/no-unused-vars": "warn",
   },
 };

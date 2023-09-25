@@ -66,8 +66,8 @@ const urlRoutes = (app: Elysia) =>
           body: t.Object({
             url: t.String(),
           }),
-        }
-      )
+        },
+      ),
   );
 
 export default urlRoutes;
